@@ -38,7 +38,7 @@ It's ok to create directly in `config.yaml` or with [this Groups Addon](https://
 /api/register
 ```
 
-#### Payload Example
+#### Payload Example [post method]
 
 ```javascript
 {
