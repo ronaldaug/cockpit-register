@@ -19,7 +19,7 @@ mailer:
       encryption: ssl
 ```
 
-#### (2) Create a `user group`
+#### (2) Create a group called `user`
 It's ok to create directly in `config.yaml` or with [this Groups Addon](https://github.com/serjoscha87/cockpit_GROUPS)
 
 --------------------------
