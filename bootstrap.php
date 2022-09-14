@@ -8,7 +8,7 @@
  * @param array $data
  * @return void
  */
-function sendingEmail($data, $that)
+function sendingEmail($data,$that)
 {
     $base_64_string = base64_encode($data['_id']."_".$data['confirmation_token']);
     $generateLink = $that->site_url.'/api/confirm?ct='.$base_64_string;
@@ -30,9 +30,10 @@ function sendingEmail($data, $that)
     } catch (\Exception $e) {
         $response = $e->getMessage();
     }
+    
 }
 
-/**
+   /**
  * Register a new user
  *
  * @return user $user
@@ -52,6 +53,7 @@ function registerUser($that)
 
     // new user needs a password
     if (!isset($data['_id'])) {
+
         // new user needs a password
         if (!isset($data['password'])) {
             return $that->stop(['error' => 'User password required'], 412);
@@ -65,10 +67,10 @@ function registerUser($that)
         $confirmation_token = substr(md5(rand()), 0, 32);
 
         $data = \array_merge($account = [
-        'user'   => explode('@', $data['email'])[0],
+        'user'   => explode('@',$data['email'])[0],
         'name'   => '',
         'email'  => '',
-        'active' => true,
+        'active' => false,
         'confirmation_token' => $confirmation_token,
         'group'  => 'user',
         'i18n'   => 'en'
@@ -123,14 +125,15 @@ function registerUser($that)
     // --
 
 
-    // $that->trigger('cockpit.accounts.save', [&$data, isset($data['_id'])]);
-    // $that->storage->save('cockpit/accounts', $data);
+    $that->trigger('cockpit.accounts.save', [&$data, isset($data['_id'])]);
+    $that->storage->save('cockpit/accounts', $data);
 
-    // sendingEmail($data,$that);
+    sendingEmail($data,$that);
 
     if (isset($data['password'])) {
         unset($data['password']);
         unset($data['confirmation_token']);
+        unset($data['api_key']);
     }
 
     return \json_encode($data);
@@ -183,16 +186,20 @@ function emailConfirmation($that)
 
 // Test page (REST API)
 $this->bind('/api/register', function () {
+
     $respone = registerUser($this);
 
     return json_encode(['status' => 200, 'data' => $respone]);
+
 });
 
 
 
 // Test page (REST API)
 $this->bind('/api/confirm', function () {
+
     $respone = emailConfirmation($this);
 
     return json_encode(['status' => 200, 'data' => $respone]);
+
 });
