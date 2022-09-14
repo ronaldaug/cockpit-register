@@ -19,7 +19,8 @@ mailer:
       encryption: ssl
 ```
 
-#### (2) Create a user group with [Groups Addon](https://github.com/serjoscha87/cockpit_GROUPS)
+#### (2) Create a `user group`
+It's ok to create directly in `config.yaml` or with [this Groups Addon](https://github.com/serjoscha87/cockpit_GROUPS)
 
 --------------------------
 
@@ -49,5 +50,11 @@ mailer:
 	}
 }
 ```
+
+----------
+
+![Screenshot from 2022-09-14 22-51-18](https://user-images.githubusercontent.com/33022876/190211204-abededa3-89c0-4035-8781-aca7cea8192e.jpeg)
+
+-------------
 
 > Firstly, it will register as an inactive account and will send a confirmation email, after user click on confirmation button it will activate the account and he/she will be able to login.
