@@ -67,7 +67,7 @@ function registerUser($that)
         'active' => false,
         'confirmation_token' => $confirmation_token,
         'i18n'   => 'en',
-        'role'   => 'admin',
+        'role'   => 'user',
         'theme'  => 'auto'
     ], $data);
 
