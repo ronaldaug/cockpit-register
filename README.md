@@ -1,5 +1,7 @@
 # Cockpit CMS Registration API
 
+As far as I know, Cockpit CMS doesn't have an API to register user via Fronend apps (Vue,React,Angular..) and send confirmation email. That's why I made this addon.
+
 ## Configuration
 
 #### (1) Add SMTP config to `config/config.yaml` file
