@@ -28,7 +28,8 @@ It's ok to create directly in `config.yaml` or with [this Groups Addon](https://
 
 ## Installation
 
-#### Download this repo, rename the folder as `register` and add it in `addons` folder of cockpit cms.
+#### Download this repo, pick one folder that match your Cockpit CMS version. 
+> E.g I'm using Cockpit CMS v2, so I copy only `cockpit-register-v2` folder into Cockpit's `addons` folder. 
 
 ---------------------------
 
