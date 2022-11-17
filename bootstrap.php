@@ -136,7 +136,7 @@ function registerUser($that)
         unset($data['api_key']);
     }
 
-    return \json_encode($data);
+    return $data;
 }
 
 
