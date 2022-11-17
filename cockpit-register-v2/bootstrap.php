@@ -59,7 +59,12 @@ function registerUser($that)
         }
 
         $confirmation_token = substr(md5(rand()), 0, 32);
-
+        
+        // Every new user will be user role
+        $data['role']      = 'user';
+        $data['_created']  = time();
+        $data['_modified'] = time();
+        
         $data = \array_merge($account = [
         'user'   => explode('@', $data['email'])[0],
         'name'   => '',
@@ -75,10 +80,6 @@ function registerUser($that)
             $data['apiKey'] = 'USR-'.\bin2hex(random_bytes(20));
         }
 
-        // Every new user will be admin role
-        $data['role']      = 'admin';
-        $data['_created']  = time();
-        $data['_modified'] = time();
     }
 
     if (isset($data['password'])) {
