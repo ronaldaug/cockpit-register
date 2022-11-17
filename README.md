@@ -1,11 +1,11 @@
-# Cockpit Registration API
+# Cockpit CMS Registration API
 
 ## Configuration
 
 #### (1) Add SMTP config to `config/config.yaml` file
 
 ```
-# Cockpit settings
+## Cockpit settings
 
 mailer: 
       from : noreply@mailtrap.io
@@ -21,6 +21,8 @@ mailer:
 
 #### (2) Create a group called `user`
 It's ok to create directly in `config.yaml` or with [this Groups Addon](https://github.com/serjoscha87/cockpit_GROUPS)
+
+> Note: If you're in Cockpit CMS v2, it's not neccessary to create a **group**. You only have to create a **role** named "user".
 
 --------------------------
 
@@ -47,7 +49,7 @@ It's ok to create directly in `config.yaml` or with [this Groups Addon](https://
       "user":"tester",
       "email":"youremail@gmail.com",
       "password":"123456"
-	}
+  }
 }
 ```
 
